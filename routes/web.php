@@ -13,6 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Route Backend
+
+Auth::routes();
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home');
 });
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware'=>['auth','checkRole:admin'],'prefix'=>'admin'],function(){
+    
+    Route::get('/', 'Admin\HomeController@index')->name('admin');
+    Route::get('/user', 'Admin\UserController@index')->name('admin.user');    
+});
+Route::group(['middleware'=>['auth','checkRole:user,userplus']],function(){
+    Route::get('profile/{req}', 'User\UserController@detail')->name('user.detail');
+    });
+
+//Route Frontend
