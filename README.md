@@ -1,2 +1,4 @@
 # Informageek
 
+Laravel 7
+
