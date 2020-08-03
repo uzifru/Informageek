@@ -13,12 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Route Frontend
+Route::get('/{any}', function () {
+    return view('welcome');
+})->where('any', '.*');
+
 //Route Backend
 
 Auth::routes();
-Route::get('/', function () {
-    return redirect()->route('home');
-});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>['auth','checkRole:admin'],'prefix'=>'admin'],function(){
@@ -29,5 +32,3 @@ Route::group(['middleware'=>['auth','checkRole:admin'],'prefix'=>'admin'],functi
 Route::group(['middleware'=>['auth','checkRole:user,userplus']],function(){
     Route::get('profile/{req}', 'User\UserController@detail')->name('user.detail');
     });
-
-//Route Frontend
