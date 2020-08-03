@@ -1,2 +1,2 @@
-# Informageek Sakti
+# Informageek
 
