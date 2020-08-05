@@ -21,6 +21,9 @@
           <li class="nav-item">
             <router-link class="nav-link" :to="{name: 'forgot'}">Forgot Password</router-link>
           </li>
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{name: 'beranda'}">Beranda(sementara)</router-link>
+          </li>
         </ul>
       </div>
     </nav>

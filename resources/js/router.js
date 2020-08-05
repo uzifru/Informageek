@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Forgot from './pages/Forgot';
+import Beranda from './pages/Beranda';
 
 Vue.use(VueRouter);
 
@@ -30,6 +31,11 @@ const router = new VueRouter({
       name: 'forgot',
       path: '/forgot',
       component: Forgot
+    },
+    {
+      name: 'beranda',
+      path: '/beranda',
+      component: Beranda
     },
   ]
 });
